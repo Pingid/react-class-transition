@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 18
+      - name: install dependencies
+        run: yarn install
+      - name: transpile typescript
+        run: yarn build
+      - name: run tests
+        run: yarn test

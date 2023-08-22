@@ -1,0 +1,63 @@
+{
+  "name": "react-class-transition",
+  "version": "0.0.1",
+  "description": "A React utility hook for easy and dynamic toggling of CSS classes",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "module": "lib/esm/index.mjs",
+  "author": "Dan Beaven <dm.beaven@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pingid/react-class-transition"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "package.json",
+    "!**/*.test.*",
+    "tsconfig.json"
+  ],
+  "keywords": [
+    "classes",
+    "classname",
+    "classnames",
+    "react",
+    "animations"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo 'no tests'"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "typescript": "^5.1.3",
+    "vitest": "^0.32.2"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": {
+        "types": "./lib/esm/index.d.mts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "module": "./lib/esm/index.js",
+      "default": "./lib/index.js",
+      "require": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "all"
+  }
+}
