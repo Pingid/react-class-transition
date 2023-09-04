@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 
 export const useTransitions = <T extends Record<string, Record<string, ReadonlyArray<string | number>>>>(config: T) => {
   const s = useRef({
@@ -37,7 +37,13 @@ export const useTransitions = <T extends Record<string, Record<string, ReadonlyA
     )
   }, [])
 
-  return [bind, run] as const
+  const refs = useMemo(() => {
+    return new Proxy(s.current.elem, {
+      get: (_t, key) => s.current.elem[key as any],
+    })
+  }, [])
+
+  return [bind, run, refs] as const
 }
 
 export default useTransitions
